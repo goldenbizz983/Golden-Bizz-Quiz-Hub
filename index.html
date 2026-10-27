@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuizHub</title>
+  <link rel="shortcut icon" href="WhatsApp Image 2026-10-04 at 2.27.10 PM.jpeg" type="image/x-icon">
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <main id="app" class="app-main">
+
+    <!-- SCREEN 1: LOGIN -->
+    <section id="login-screen" class="login-screen" aria-labelledby="login-title" hidden>
+      <div class="login-brand">Golden-Bizz-Quiz-Hub</div>
+      <h1 id="login-title" class="login-heading">Welcome back</h1>
+
+      <form id="login-form" class="login-form-box" novalidate>
+        <div class="login-email-group">
+          <label for="login-email" class="login-email-label">Email</label>
+          <input
+            type="email"
+            id="login-email"
+            class="login-email-input"
+            name="email"
+            autocomplete="email"  
+            required
+          />
+        </div>
+
+        <div class="login-password-group">
+          <label for="login-password" class="login-password-label">Password</label>
+          <input
+            type="password"
+            id="login-password"
+            class="login-password-input"
+            name="password"
+            autocomplete="current-password"
+            required
+          />
+        </div>
+
+        <p id="login-error" class="login-error-message" role="alert"></p>
+
+        <button type="submit" id="login-button" class="login-submit-button">Login</button>
+      </form>
+            <div class="login-divider">
+        <span class="login-divider-text">or</span>
+      </div>
+
+      <button type="button" id="login-google-button" class="login-google-button">
+        <img class="login-google-button-img" src="google.jpg" alt="">
+        Continue with Google
+      </button>
+
+      <p class="login-switch-text">
+        New here?
+        <button type="button" id="go-to-register" class="login-to-register-button">Register</button>
+      </p>
+    </section>
+
+    <!-- SCREEN 2: REGISTER -->
+    <section id="register-screen" class="register-screen" aria-labelledby="register-title" hidden>
+      <div class="register-brand">Golden-Bizz-Quiz-Hub</div>
+      <h1 id="register-title" class="register-heading">Create your account</h1>
+
+      <form id="register-form" class="register-form-box" novalidate>
+        <div class="register-name-group">
+          <label for="register-name" class="register-name-label">Full name</label>
+          <input
+            type="text"
+            id="register-name"
+            class="register-name-input"
+            name="name"
+            autocomplete="name"
+            required
+          />
+        </div>
+
+        <div class="register-email-group">
+          <label for="register-email" class="register-email-label">Email</label>
+          <input
+            type="email"
+            id="register-email"
+            class="register-email-input"
+            name="email"
+            autocomplete="email"
+            placeholder="@gmail.com"
+            required
+          />
+        </div>
+
+        <div class="register-password-group">
+          <label for="register-password" class="register-password-label">Password</label>
+          <input
+            type="password"
+            id="register-password"
+            class="register-password-input"
+            name="password"
+            autocomplete="new-password"
+            minlength="6"
+            required
+          />
+        </div>
+
+        <p id="register-error" class="register-error-message" role="alert"></p>
+
+        <button type="submit" id="register-button" class="register-submit-button">Create account</button>
+      </form>
+            <div class="register-divider">
+        <span class="register-divider-text">or</span>
+      </div>
+
+      <button type="button" id="register-google-button" class="register-google-button">
+        <img class="register-google-button-img" src="google.jpg" alt="">
+        Continue with Google
+      </button>
+
+      <p class="register-switch-text">
+        Already have an account?
+        <button type="button" id="go-to-login" class="register-to-login-button">Login</button>
+      </p>
+    </section>
+
+    
+        <!-- SCREEN 3: QUIZ HOMEPAGE -->
+    <section id="home-screen" class="home-screen" aria-labelledby="home-title" hidden>
+
+      <header class="home-header">
+        <div class="home-brand">Golden-Bizz-Quiz-Hub</div>
+        <button type="button" id="logout-button" class="home-logout-button">Logout</button>
+      </header>
+
+      <div class="home-welcome-box">
+        <h1 id="home-title" class="home-heading">
+          Welcome, <span id="home-user-name" class="home-user-name">Student</span>!
+        </h1>
+        <p class="home-subtitle">Pick a quiz to begin.</p>
+      </div>
+
+      <p id="quiz-loading" class="home-loading-message">Loading quizzes...</p>
+      
+      <div id="quiz-list" class="home-quiz-list">
+
+        
+
+      </div>
+
+      <p id="empty-quizzes" class="home-empty-message" hidden>
+        No quizzes yet. Check back soon.
+      </p>
+
+    </section>
+
+        <!-- SCREEN 4: INSTRUCTIONS -->
+    <section id="instructions-screen" class="instructions-screen" aria-labelledby="instructions-title" hidden>
+
+      <h1 id="instructions-title" class="instructions-heading">Quiz title</h1>
+
+      <p class="instructions-intro">Before you start:</p>
+
+      <ul class="instructions-list">
+        <li class="instructions-count-item">
+          <span id="instructions-question-count" class="instructions-question-count">10</span> questions
+        </li>
+        <li class="instructions-options-item">4 options for each question</li>
+        <li class="instructions-change-item">You can go back and change your answers</li>
+        <li class="instructions-skip-item">Questions you skip count as wrong</li>
+      </ul>
+      
+      <p id="instructions-error" class="instructions-error-message" role="alert"></p>
+
+      <div class="instructions-button-row">
+        <button type="button" id="instructions-back-button" class="instructions-back-button">Back</button>
+        <button type="button" id="begin-quiz-button" class="instructions-begin-button">Begin quiz</button>
+      </div>
+
+    </section>
+
+
+
+        <!-- SCREEN 5: ACTIVE QUIZ -->
+    <section id="quiz-screen" class="quiz-screen" aria-labelledby="quiz-title" hidden>
+
+      <header class="quiz-header">
+        <h1 id="quiz-title" class="quiz-heading">Quiz title</h1>
+
+        <p class="quiz-progress-text">
+          Question <span id="quiz-current-number" class="quiz-current-number">1</span>
+          of <span id="quiz-total-number" class="quiz-total-number">10</span>
+        </p>
+
+        <div
+          id="quiz-progress-track"
+          class="quiz-progress-track"
+          role="progressbar"
+          aria-label="Quiz progress"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="20"
+        >
+          <div id="quiz-progress-fill" class="quiz-progress-fill"></div>
+        </div>
+      </header>
+
+      <form id="quiz-form" class="quiz-form-box">
+        <fieldset class="quiz-fieldset">
+          <legend id="quiz-question-text" class="quiz-question-text">Question text goes here</legend>
+
+          <!-- OPTION A -->
+          <label for="quiz-option-a" class="quiz-option-a-label">
+            <input
+              type="radio"
+              id="quiz-option-a"
+              class="quiz-option-a-input"
+              name="quiz-answer"
+              value="0"
+            />
+            <span id="quiz-option-a-text" class="quiz-option-a-text">Option A</span>
+          </label>
+
+           <!-- OPTION B -->
+          <label for="quiz-option-b" class="quiz-option-b-label">
+            <input
+              type="radio"
+              id="quiz-option-b"
+              class="quiz-option-b-input"
+              name="quiz-answer"
+              value="1"
+            />
+            <span id="quiz-option-b-text" class="quiz-option-b-text">Option B</span>
+          </label>
+
+           <!-- OPTION C -->
+          <label for="quiz-option-c" class="quiz-option-c-label">
+            <input
+              type="radio"
+              id="quiz-option-c"
+              class="quiz-option-c-input"
+              name="quiz-answer"
+              value="2"
+            />
+            <span id="quiz-option-c-text" class="quiz-option-c-text">Option C</span>
+          </label>
+
+           <!-- OPTION D -->
+          <label for="quiz-option-d" class="quiz-option-d-label">
+            <input
+              type="radio"
+              id="quiz-option-d"
+              class="quiz-option-d-input"
+              name="quiz-answer"
+              value="3"
+            />
+            <span id="quiz-option-d-text" class="quiz-option-d-text">Option D</span>
+          </label>
+        </fieldset>
+      </form>
+      
+                <!-- Previous, Next, and Submit buttons -->
+            <div class="quiz-button-row">
+        <button type="button" id="quiz-previous-button" class="quiz-previous-button">Previous</button>
+        <button type="button" id="quiz-next-button" class="quiz-next-button">Next</button>
+        <button type="button" id="quiz-submit-button" class="quiz-submit-button" hidden>Submit quiz</button>
+      </div>
+
+                <!-- the confirmation message before submitting -->
+            <dialog id="submit-dialog" class="submit-dialog" aria-labelledby="submit-dialog-title">
+        <h2 id="submit-dialog-title" class="submit-dialog-heading">Submit your quiz?</h2>
+
+        <p class="submit-dialog-message">
+          You answered
+          <span id="submit-answered-count" class="submit-answered-count">0</span>
+          of
+          <span id="submit-total-count" class="submit-total-count">10</span>
+          questions.
+        </p>
+
+        <p id="submit-dialog-warning" class="submit-dialog-warning" hidden>
+          Questions you skipped will count as wrong.
+        </p>
+
+        <div class="submit-dialog-button-row">
+          <button type="button" id="submit-cancel-button" class="submit-cancel-button">Keep answering</button>
+          <button type="button" id="submit-confirm-button" class="submit-confirm-button">Yes, submit</button>
+        </div>
+      </dialog>
+    </section>
+
+    
+    <!-- SCREEN 6: RESULTS -->
+    <section id="results-screen" class="results-screen" aria-labelledby="results-title" hidden>
+
+      <h1 id="results-title" class="results-heading">Quiz complete</h1>
+
+      <p class="results-score-text">
+        You scored
+        <span id="results-score" class="results-score">0</span>
+        out of
+        <span id="results-total" class="results-total">10</span>
+      </p>
+
+      <p id="results-percentage" class="results-percentage">0%</p>
+
+      <p id="results-feedback" class="results-feedback">Feedback message</p>
+
+        <p id="results-save-status" class="results-save-status" role="status"></p>
+
+      <div class="results-button-row">
+        <button type="button" id="results-retake-button" class="results-retake-button">Retake quiz</button>
+        <button type="button" id="results-home-button" class="results-home-button">Back to home</button>
+      </div>
+
+    </section>
+  </main>
+
+  <script type="module" src="index.js"></script>
+</body>
+</html>
